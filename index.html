@@ -1,21 +1,96 @@
+
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>معرض أعمال أحمد</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 50px; background: #121212; color: white; }
-    a { display: inline-block; margin: 15px; padding: 10px 25px; background: #e91e63; color: white; text-decoration: none; border-radius: 8px; font-size: 1.2rem; }
-    a:hover { background: #c2185b; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    main {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .project {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h2 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+    }
+    .project a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <h1>مرحباً بك في معرض أعمال أحمد</h1>
-  <p>اختر مشروعك من القائمة أدناه:</p>
-  <a href="ProjectsByAhmed/Admin dashbord/index.html" target="_blank">لوحة التحكم Admin dashbord</a><br/>
-  <a href="ProjectsByAhmed/Ahmedshawshank_redemption/index.html" target="_blank">مشروع Shawshank redemption</a><br/>
-  <a href="ProjectsByAhmed/DataLens Dashboard/index.html" target="_blank">لوحة بيانات DataLens Dashboard</a><br/>
-  <a href="ProjectsByAhmed/HungerStationProject/index.html" target="_blank">مشروع Hunger Station</a><br/>
+  <header>
+    <h1>Ahmed Beskare</h1>
+    <p>Frontend Developer - HTML | CSS | JavaScript</p>
+    <p>📞 +218 0919292480 | <a href="https://ahmedbskare.github.io/ahmed-portfolio/" style="color: #0bf;">GitHub Portfolio</a></p>
+  </header>
+
+  <main>
+    <div class="project">
+      <h2>Admin Dashboard</h2>
+      <a href="ProjectsByAhmed/Admin%20dashbord/index.html" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h2>Shawshank Redemption Page</h2>
+      <a href="ProjectsByAhmed/Ahmedshawshank_redemption/index.html" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h2>DataLens Dashboard</h2>
+      <a href="ProjectsByAhmed/DataLens Dashboard/index.html" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h2>HungerStation Project</h2>
+      <a href="ProjectsByAhmed/HungerStationProject/index.html" target="_blank">View Project</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Ahmed Beskare - All Rights Reserved.
+  </footer>
 </body>
 </html>
