@@ -5,17 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>معرض أعمال أحمد</title>
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 50px; background: #121212; color: white; }
-    a { display: inline-block; margin: 15px; padding: 10px 25px; background: #e91e63; color: white; text-decoration: none; border-radius: 8px; font-size: 1.2rem; }
-    a:hover { background: #c2185b; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #121212;
+      color: white;
+      margin: 0;
+    }
+    ul.projects-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto 0;
+      max-width: 400px;
+    }
+    ul.projects-list li {
+      margin: 15px 0;
+    }
+    ul.projects-list li a {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 20px;
+      background: #e91e63;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    ul.projects-list li a:hover {
+      background: #c2185b;
+    }
   </style>
 </head>
 <body>
   <h1>مرحباً بك في معرض أعمال أحمد</h1>
   <p>اختر مشروعك من القائمة أدناه:</p>
-  <a href="ProjectsByAhmed/Admin dashbord/index.html" target="_blank">لوحة التحكم Admin dashbord</a><br/>
-  <a href="ProjectsByAhmed/Ahmedshawshank_redemption/index.html" target="_blank">مشروع Shawshank redemption</a><br/>
-  <a href="ProjectsByAhmed/DataLens Dashboard/index.html" target="_blank">لوحة بيانات DataLens Dashboard</a><br/>
-  <a href="ProjectsByAhmed/HungerStationProject/index.html" target="_blank">مشروع Hunger Station</a><br/>
+  <ul class="projects-list">
+    <li><a href="ProjectsByAhmed/Admin dashbord/index.html" target="_blank" rel="noopener noreferrer">لوحة التحكم Admin dashbord</a></li>
+    <li><a href="ProjectsByAhmed/Ahmedshawshank_redemption/index.html" target="_blank" rel="noopener noreferrer">مشروع Shawshank redemption</a></li>
+    <li><a href="ProjectsByAhmed/DataLens Dashboard/index.html" target="_blank" rel="noopener noreferrer">لوحة بيانات DataLens Dashboard</a></li>
+    <li><a href="ProjectsByAhmed/HungerStationProject/index.html" target="_blank" rel="noopener noreferrer">مشروع Hunger Station</a></li>
+  </ul>
 </body>
 </html>
