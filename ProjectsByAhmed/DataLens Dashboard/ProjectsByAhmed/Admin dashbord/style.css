@@ -1,0 +1,108 @@
+/* style.css */
+
+/* إعدادات عامة */
+body {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  margin: 0;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+.header-main {
+  background-color: #2e3b55;
+  height: 60px;
+}
+
+/* الحاوية الرئيسية */
+.dashboard-conateienar {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+  width: 250px;
+  background-color: #1f2d3d;
+  color: white;
+  padding: 20px 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #32465a;
+  border-right: 4px solid #00c0ef;
+}
+
+.sidebar i {
+  margin-left: 10px;
+}
+
+.sidebar samp {
+  font-size: 16px;
+}
+
+/* محتوى الصفحة */
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.main-content h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.main-content p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* البطاقات */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00a65a;
+}
