@@ -9,7 +9,7 @@ function saveRatings(ratings) {
   localStorage.setItem("movieRatings", JSON.stringify(ratings));
 }
 
-// تحديث عرض النجوم حسب التقييم
+// تحديث عرض النجوم
 function updateStarsDisplay(starsContainer, rating) {
   const stars = starsContainer.querySelectorAll("i");
   stars.forEach((star, index) => {
@@ -23,7 +23,7 @@ function updateStarsDisplay(starsContainer, rating) {
   });
 }
 
-// إعداد تفاعل النجوم (النقر، المرور، الخروج)
+// إعداد التفاعل مع النجوم
 function setupRating(starsContainer, currentRating, movieId, ratings) {
   const stars = starsContainer.querySelectorAll("i");
 
@@ -34,8 +34,7 @@ function setupRating(starsContainer, currentRating, movieId, ratings) {
       const ratingValue = index + 1;
       ratings[movieId] = ratingValue;
       saveRatings(ratings);
-      currentRating = ratingValue;
-      updateStarsDisplay(starsContainer, currentRating);
+      updateStarsDisplay(starsContainer, ratingValue);
     });
 
     star.addEventListener("mouseenter", () => {
@@ -43,26 +42,23 @@ function setupRating(starsContainer, currentRating, movieId, ratings) {
     });
 
     star.addEventListener("mouseleave", () => {
-      updateStarsDisplay(starsContainer, currentRating);
+      updateStarsDisplay(starsContainer, ratings[movieId] || 0);
     });
   });
 }
 
-// تهيئة التقييمات لكل فيلم في الصفحة
-function init() {
+// عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
   const ratings = loadRatings();
 
-  // كل بطاقة فيلم
   const movieCards = document.querySelectorAll(".movie-card");
 
-  movieCards.forEach((card, index) => {
+  movieCards.forEach((card) => {
+    const movieId = card.dataset.id;
     const starsContainer = card.querySelector(".stars");
-    const movieId = index + 1; // معرف مؤقت لكل فيلم
-
     const rating = ratings[movieId] || 0;
+
     updateStarsDisplay(starsContainer, rating);
     setupRating(starsContainer, rating, movieId, ratings);
   });
-}
-
-document.addEventListener("DOMContentLoaded", init);
+});
