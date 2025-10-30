@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معرض أعمالي | ah_med0088</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>معرض أعمال ah_med0088</header>
+
+<section class="projects">
+  <div class="project-card">
+    <h2 class="project-title">مشروع 1</h2>
+    <p class="project-description">وصف مختصر لمشروع 1.</p>
+    <button class="details-button" onclick="openModal('modal1')">تفاصيل أكثر</button>
+  </div>
+
+  <div class="project-card">
+    <h2 class="project-title">مشروع 2</h2>
+    <p class="project-description">وصف مختصر لمشروع 2.</p>
+    <button class="details-button" onclick="openModal('modal2')">تفاصيل أكثر</button>
+  </div>
+
+  <div class="project-card">
+    <h2 class="project-title">مشروع 3</h2>
+    <p class="project-description">وصف مختصر لمشروع 3.</p>
+    <button class="details-button" onclick="openModal('modal3')">تفاصيل أكثر</button>
+  </div>
+</section>
+
+<!-- Modals -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h2>تفاصيل مشروع 1</h2>
+    <p>هذا المشروع عبارة عن واجهة تسجيل دخول باستخدام HTML وCSS فقط. تصميم بسيط يحاكي إنستقرام.</p>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h2>تفاصيل مشروع 2</h2>
+    <p>لوحة تحكم إدارية تحتوي على قوائم جانبية وعرض إحصائيات. بنيت باستخدام HTML وCSS وJavaScript.</p>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal3')">&times;</span>
+    <h2>تفاصيل مشروع 3</h2>
+    <p>موقع تقييم أفلام يسمح للمستخدم بإضافة وتقييم أفلام باستخدام نجوم وتفاعلات ديناميكية.</p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 ah_med0088 - جميع الحقوق محفوظة
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

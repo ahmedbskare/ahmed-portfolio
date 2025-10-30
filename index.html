@@ -1,96 +1,277 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ahmed Beskare — Frontend Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #f4f4f4;
-      color: #333;
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#6ee7b7;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
     }
-    header {
-      background: #222;
-      color: white;
-      padding: 2rem;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg) 0%, #071024 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
+
+    /* container */
+    .wrap{max-width:1100px;margin:32px auto;padding:20px;}
+
+    /* header / hero */
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
     }
-    p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+    .hero-left{flex:1}
+    .name{font-size:1.6rem;font-weight:700;margin:0;}
+    .role{color:var(--muted);margin:6px 0 0 0}
+    .hero-actions{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;
+      background:linear-gradient(180deg,var(--accent), #34d399);
+      color:#022; font-weight:700; text-decoration:none; border:none; cursor:pointer;
     }
-    main {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+    .btn-outline{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);
+      padding:10px 12px;border-radius:10px;text-decoration:none;
     }
-    .project {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+
+    /* quick stats */
+    .quick{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:500}
+
+    /* grid for main content */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:18px;
+      margin-top:18px;
     }
-    .project:hover {
-      transform: translateY(-5px);
+
+    /* projects list */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      gap:14px;
     }
-    .project h2 {
-      font-size: 1.3rem;
-      margin: 0.5rem 0;
+    .card{
+      background:var(--card);
+      padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:flex;flex-direction:column;justify-content:space-between;
+      min-height:140px;
     }
-    .project a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #007BFF;
-      text-decoration: none;
-      font-weight: bold;
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.7)}
+    .card h3{margin:0 0 6px 0}
+    .meta{color:var(--muted);font-size:0.88rem;margin-bottom:10px}
+    .card .links{display:flex;gap:8px}
+    .card a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* sidebar */
+    aside{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+      height:fit-content;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-      margin-top: 2rem;
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+
+    /* contact */
+    .contact{margin-top:12px;text-align:center}
+    .socials{display:flex;justify-content:center;gap:12px;margin-top:10px}
+    .socials a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    .socials a:hover{color:var(--bg);background:var(--accent);border-color:transparent}
+
+    /* footer */
+    footer{opacity:0.9;text-align:center;margin-top:18px;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .grid{grid-template-columns:1fr}
+      aside{order:2}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ahmed Beskare</h1>
-    <p>Frontend Developer - HTML | CSS | JavaScript</p>
-    <p>📞 +218 0919292480 | <a href="https://ahmedbskare.github.io/ahmed-portfolio/" style="color: #0bf;">GitHub Portfolio</a></p>
-  </header>
+  <div class="wrap">
+    <!-- HERO -->
+    <header>
+      <div class="hero-left">
+        <p class="name">Ahmed Beskare <span style="color:var(--accent)">• Frontend Developer</span></p>
+        <p class="role">HTML · CSS · JavaScript · React — I build fast, accessible & polished UIs for small businesses & startups</p>
 
-  <main>
-    <div class="project">
-      <h2>Admin Dashboard</h2>
-      <a href="ProjectsByAhmed/Admin%20dashbord/index.html" target="_blank">View Project</a>
-    </div>
-    <div class="project">
-      <h2>Shawshank Redemption Page</h2>
-      <a href="ProjectsByAhmed/Ahmedshawshank_redemption/index.html" target="_blank">View Project</a>
-    </div>
-    <div class="project">
-      <h2>DataLens Dashboard</h2>
-      <a href="ProjectsByAhmed/DataLens Dashboard/index.html" target="_blank">View Project</a>
-    </div>
-    <div class="project">
-      <h2>HungerStation Project</h2>
-      <a href="ProjectsByAhmed/HungerStationProject/index.html" target="_blank">View Project</a>
-    </div>
-  </main>
+        <div class="quick" style="margin-top:10px">
+          <div class="chip"><i class="fas fa-code"></i> React · Next.js</div>
+          <div class="chip"><i class="fas fa-mobile-alt"></i> Responsive</div>
+          <div class="chip"><i class="fas fa-rocket"></i> Fast & Clean</div>
+        </div>
+      </div>
 
-  <footer>
-    &copy; 2025 Ahmed Beskare - All Rights Reserved.
-  </footer>
+      <div class="hero-actions" aria-hidden="false">
+        <a class="btn" href="#contact"><i class="fas fa-paper-plane"></i> Hire Me</a>
+        <a class="btn-outline" href="files/Ahmed_Beskare_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+      <!-- LEFT: Projects -->
+      <main>
+        <section style="margin-bottom:12px">
+          <h2 style="margin:0 0 10px 0">Featured Projects</h2>
+          <p style="color:var(--muted);margin:0 0 14px 0">كل المشاريع هنا: افتح الرابط لمعاينة المشروع — إذا كان الرابط محلياً سيعمل بعد push لأن الكود يتوقع مجلدات `ProjectsByAhmed/` داخل الريبو.</p>
+        </section>
+
+        <section class="projects" id="projectsContainer">
+          <!-- Projects injected by JS -->
+        </section>
+
+        <!-- optional: testimonials or notes -->
+        <section style="margin-top:18px">
+          <h3 style="margin:0 0 8px 0">Note</h3>
+          <p style="color:var(--muted);margin:0">إذا أي مشروع لا يظهر بعد الضغط، تأكد أن داخل مجلد المشروع ملف <code>index.html</code> أو أن الرابط في مصفوفة المشاريع صحيح. لتعديل المشاريع بسرعة افتح الجزء الخاص بالـ <code>projects</code> في أسفل هذا الملف.</p>
+        </section>
+      </main>
+
+      <!-- RIGHT: Sidebar -->
+      <aside>
+        <div style="display:flex;gap:10px;align-items:center">
+          <img src="https://avatars.githubusercontent.com/ahmedbskare" alt="Ahmed" style="width:64px;height:64px;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,0.04)"/>
+          <div>
+            <div style="font-weight:700">Ahmed Beskare</div>
+            <div style="color:var(--muted);font-size:0.95rem">Frontend Developer</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h4 style="margin:0 0 8px 0">Skills</h4>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Responsive</span>
+          </div>
+        </div>
+
+        <div class="contact" id="contact">
+          <h4 style="margin-bottom:8px">Contact</h4>
+          <div style="color:var(--muted);font-size:0.95rem">Email</div>
+          <a href="mailto:ahmedxahmed469@gmail.com" style="display:block;margin:8px 0;font-weight:700;color:var(--accent)">ahmedxahmed469@gmail.com</a>
+
+          <div class="socials">
+            <a href="https://linkedin.com/in/ahmed-beskre-3a3241376" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ahmedbskare" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p style="margin:16px 0 6px 0;color:var(--muted)">© 2025 Ahmed Beskare — All Rights Reserved</p>
+      <p style="margin:0;color:var(--muted)">Hosted on Vercel — <a href="https://ahmed-portfolio-lilac.vercel.app" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">ahmed-portfolio-lilac.vercel.app</a></p>
+    </footer>
+  </div>
+
+  <!-- ====== SCRIPT: Dynamic projects list (edit this array only) ====== -->
+  <script>
+    /**
+     * تعديل المشاريع:
+     * - اضف أو حرر كائن جديد داخل المصفوفة 'projects'
+     * - احفظ، ثم اعمل push — Vercel سيحدث الموقع تلقائياً.
+     *
+     * كل كائن: { title, description, href }
+     * إذا المشروع موجود في المجلد ProjectsByAhmed/YourFolder/index.html اكتب href كنسبية مثل:
+     * "ProjectsByAhmed/MyNewProject/index.html"
+     *
+     * أو استخدم رابط GitHub Pages/Vercel الكامل إذا تريد معاينة مباشرة.
+     */
+
+    const projects = [
+      {
+        title: "Admin Dashboard",
+        description: "React dashboard with charts and responsive layout.",
+        href: "https://ahmedbskare.github.io/AdminDashboard/"
+      },
+      {
+        title: "Shawshank Redemption Page",
+        description: "Static HTML/CSS page — creative fan page.",
+        href: "https://ahmedbskare.github.io/ShawshankRedemption/"
+      },
+      {
+        title: "DataLens Dashboard",
+        description: "Data driven UI, tables and filters.",
+        href: "https://ahmedbskare.github.io/DataLensDashboard/"
+      },
+      {
+        title: "HungerStation Project",
+        description: "Restaurant ordering UI mockup.",
+        href: "https://ahmedbskare.github.io/HungerStationProject/"
+      },
+      /* ---- هذه أمثلة لمشاريع قد تكون محلية عندك — عدّل الروابط إذا لزم ---- */
+      {
+        title: "FilmForth (Local)",
+        description: "Video editor UI — local folder example.",
+        href: "ProjectsByAhmed/FilmForth/index.html"
+      },
+      {
+        title: "My App (Local)",
+        description: "React app example (my-app).",
+        href: "my-app/index.html"
+      },
+      {
+        title: "Extra Project (Placeholder)",
+        description: "أضف هنا مشروع آخر لديك — استبدل href بالرابط الصحيح.",
+        href: "ProjectsByAhmed/ExtraProject/index.html"
+      }
+    ];
+
+    function createProjectCard(p){
+      const card = document.createElement('article');
+      card.className = 'card';
+      const title = document.createElement('h3'); title.textContent = p.title;
+      const meta = document.createElement('div'); meta.className='meta'; meta.textContent = p.description || '';
+      const links = document.createElement('div'); links.className = 'links';
+      const a = document.createElement('a'); 
+      a.href = p.href;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = 'Open';
+      links.appendChild(a);
+
+      // If href is relative, also add a "Preview (new tab)" for convenience
+      // (both will behave same if link is absolute)
+      card.appendChild(title);
+      card.appendChild(meta);
+      card.appendChild(links);
+      return card;
+    }
+
+    const container = document.getElementById('projectsContainer');
+    projects.forEach(p => container.appendChild(createProjectCard(p)));
+  </script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+﻿# مجلدات النظام والمستخدم
+AppData/
+.vscode/
+node_modules/
+dist/
+build/
+
+# ملفات الـ Cache والبرامج الأخرى
+*.log
+*.tmp
+*.bak
+capcut/
